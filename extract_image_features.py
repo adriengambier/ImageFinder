@@ -1,10 +1,10 @@
 import argparse
 import os
+import sqlite3
 
 import numpy as np
-from PIL import UnidentifiedImageError
-import sqlite3
 import sqlite_vec
+from PIL import UnidentifiedImageError
 from tensorflow.keras.applications.resnet50 import ResNet50
 
 import utils

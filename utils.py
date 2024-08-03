@@ -1,8 +1,10 @@
-from typing import List
 import struct
+from typing import List
+
+import numpy as np
 from PIL import Image
 from tensorflow.keras.applications.resnet50 import preprocess_input
-import numpy as np
+
 
 def serialize_f32(vector: List[float]) -> bytes:
     """serializes a list of floats into a compact "raw bytes" format"""
