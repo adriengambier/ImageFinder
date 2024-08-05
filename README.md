@@ -18,24 +18,24 @@ To install the necessary libraries for this project, run :
 `pip install -r requirements.txt`
 
 ### Special Instructions for Windows Users
-If you encounter the following error with `sqlite-vec` : 
-`OperationalError: The specified module could not be found.`
+If you encounter the following error with `sqlite-vec` :  
+`OperationalError: The specified module could not be found.`  
 You can manually download the required `.dll` file from this [link](https://github.com/asg017/sqlite-vec/releases/download/v0.0.1-alpha.37/vec0.dll) and place it in the directory specified by `sqlite_vec.loadable_path()`.
 
 ### Usage
 
 1. Download images
-Download images using a CSV file containing a list of URLs :
+Download images using a CSV file containing a list of URLs :  
 `python download_images.py --csv_file <path_to_csv>`
 
 2. Embedding images
-Convert the downloaded images to vectors and store them in an SQLite database for later retrieval :
+Convert the downloaded images to vectors and store them in an SQLite database for later retrieval :  
 `python extract_image_features.py --folder <path_to_images_folder>`
 
 3. API
-To run the server hosting the API with [Uvicorn](https://www.uvicorn.org/), use the following command:
-`uvicorn main:app`
-Or in a development environment to automatically reload the API when the underlying file is changed :
+To run the server hosting the API with [Uvicorn](https://www.uvicorn.org/), use the following command :  
+`uvicorn main:app`  
+Or in a development environment to automatically reload the API when the underlying file is changed :  
 `uvicorn main:app --reload`
 
 ## Technical choices
@@ -54,8 +54,9 @@ Converting an image's RGB matrix into a single vector (embedding) can be achieve
 <div align="center"><img src="https://github.com/adriengambier/ImageFinder/blob/main/assets/resnet_architecture.png" width="50%"></div>
 
 ### Storage and retrieval
-Once the embeddings are computed, they can be saved to formats like CSV or JSON. However, it is good practice to use specialized tools for storing vectors efficiently.
-We use a SQLite database for robust storage and efficient querying of embeddings. The [sqlite-vec](https://github.com/asg017/sqlite-vec) extension improves SQLite with vector search capabilities. It uses brute force to find the closest vector in the database, which is efficient for our project's scope but with potential limitations with a large number of images. For faster vector search at the cost of some accuracy, Approximate Nearest Neighbor (ANN) techniques like Locality Sensitive Hashing (LSH) can be used to hash and group similar images into buckets.
+Once the embeddings are computed, they can be saved to formats like CSV or JSON. However, it is good practice to use specialized tools for storing vectors efficiently.  
+We use a SQLite database for robust storage and efficient querying of embeddings. The [sqlite-vec](https://github.com/asg017/sqlite-vec) extension improves SQLite with vector search capabilities. It uses brute force to find the closest vector in the database, which is efficient for our project's scope but with potential limitations with a large number of images.  
+For faster vector search at the cost of some accuracy, Approximate Nearest Neighbor (ANN) techniques like Locality Sensitive Hashing (LSH) can be used to hash and group similar images into buckets.
 
 ### Vector comparison
 To identify the most similar vectors, an appropriate comparison metric is needed. Common metrics include:
