@@ -19,6 +19,8 @@ model = ResNet50(weights="imagenet", include_top=False, pooling="avg")
 
 @app.post("/similar")
 async def similar_img(file: UploadFile):
+    """Take an image as input and return the 3 most similar images with the euclidian distances between the vectors"""
+
     contents = await file.read()
     image_file = io.BytesIO(contents)
 
@@ -39,7 +41,7 @@ async def similar_img(file: UploadFile):
     ).fetchall()
 
     return {
-        "match_1":{"index": rows[0][0], "similarity":round(rows[0][1], 3)},
-        "match_2":{"index": rows[1][0], "similarity":round(rows[1][1], 3)},
-        "match_3":{"index": rows[2][0], "similarity":round(rows[2][1], 3)},
+        "match_1": {"index": rows[0][0], "similarity": round(rows[0][1], 3)},
+        "match_2": {"index": rows[1][0], "similarity": round(rows[1][1], 3)},
+        "match_3": {"index": rows[2][0], "similarity": round(rows[2][1], 3)},
     }
