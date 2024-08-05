@@ -14,7 +14,7 @@ The repository is organized into 3 main components :
 ## How to use the code
 
 ### Installation
-To install the necessary libraries for this project, run :
+To install the necessary libraries for this project (Python 3.7), run :
 `pip install -r requirements.txt`
 
 ### Special Instructions for Windows Users
