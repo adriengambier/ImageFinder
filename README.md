@@ -3,7 +3,7 @@
 
 ImageFinder is a project that allows to find similar images based on the image provided.
 
-![matching](assets/matching.png)
+<div align="center"><img src="https://github.com/adriengambier/ImageFinder/blob/main/assets/matching.PNG" width="50%"></div>
 
 ## Parts of the repository
 The repository is organized into 3 main components :
@@ -50,8 +50,8 @@ Converting an image's RGB matrix into a single vector (embedding) can be achieve
 -   **High Performance:**
     
     -   For projects where performance is key and sufficient computational resources (e.g., GPUs) are available, Convolutional Neural Networks (CNNs) are more appropriate. CNNs can better capture the features of an image. In this project, we prioritize performance and use ResNet-50, a CNN with 23 million parameters. We remove the last layer of ResNet-50 to obtain a 2048-dimensional vector representing the image's features. ResNet-50 provides a balance between performance and efficiency, providing fast image retrieval with a relatively small number of parameters.
-
-    ![resnet architecture](assets/resnet_architecture.png)
+    
+<div align="center"><img src="https://github.com/adriengambier/ImageFinder/blob/main/assets/resnet_architecture.png" width="50%"></div>
 
 ### Storage and retrieval
 Once the embeddings are computed, they can be saved to formats like CSV or JSON. However, it is good practice to use specialized tools for storing vectors efficiently.
