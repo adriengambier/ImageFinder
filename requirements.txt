@@ -1,0 +1,8 @@
+fastapi[standard]==0.103.2
+numpy==1.21.6
+pillow==9.5.0
+python-multipart==0.0.8
+requests==2.31.0
+sqlite_vec==0.1.0
+tensorflow==2.4.0
+uvicorn[standard]==0.22.0
